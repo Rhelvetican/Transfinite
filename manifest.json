@@ -1,0 +1,19 @@
+{
+    "name": "Transfinite",
+    "id": "tfnt",
+    "version": "0.0.1-indev",
+    "description": "???",
+    "prefix": "tfnt",
+    "author": [
+        "Rhelvetican"
+    ],
+    "main_file": "Transfinite.lua",
+    "priority": 667,
+    "badge_colour": "000000",
+    "dependencies": [
+        "Steamodded",
+        "Cryptid",
+        "Talisman"
+    ],
+    "conflicts": []
+}
