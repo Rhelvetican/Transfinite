@@ -7,19 +7,18 @@ if not Transfinite then
 	Transfinite.path = SMODS.current_mod.path
 
 	---@param path string
-	---@return function
 	Transfinite.load = function(path)
-		local loaded = SMODS.load_file(Transfinite.path .. path)
-		if not loaded then
-			error("Unable to load" .. path)
-		end
-		return loaded
+		assert(SMODS.load_file(path))()
 	end
 end
 
 local items = {
-	"items/colors.lua",
-	"items/consumables.lua",
+	"items/misc/atlas.lua",
+
+	"items/misc/colors.lua",
+	"items/misc/consumables.lua",
+
+	"items/ordinal/planets.lua",
 }
 
 for i = 1, #items do
