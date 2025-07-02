@@ -1,9 +1,0 @@
-{
-    "diagnostics.globals": [
-        "Cryptid",
-        "to_big",
-        "Big",
-        "lenient_bignum",
-        "G"
-    ]
-}
