@@ -1,3 +1,7 @@
+if not Cryptid then
+	error("[!!] NO CRYPTID INSTALLED?? UNFATHOMABLE. MAY GOD HAVE MERCY ON YOUR WRETCHED SOUL.")
+end
+
 if not Transfinite then
 	Transfinite = {}
 	Transfinite.path = SMODS.current_mod.path
