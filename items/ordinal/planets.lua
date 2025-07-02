@@ -68,8 +68,11 @@ local planets = {
 }
 
 for pos, value in ipairs(planets) do
+	print(pos)
 	SMODS.Consumable({
 		key = "ord_" .. value.key,
+		set = "tfnt_o_planet",
+		atlas = "o_planet",
 
 		cost = 1000,
 
@@ -84,21 +87,24 @@ for pos, value in ipairs(planets) do
 		end,
 
 		loc_txt = {
-			name = "{B:1}Ordinal " .. value.name .. "{}",
+			name = "{C:1}Ordinal{} " .. value.name,
+
 			text = {
-				"{B:1,s:1.5,E:2}^3{} {C:chips}Chips{}, {C:chips}Level Chips{}, {C:mult}Mult{} and {C:mult}Level Mult{}.",
+				"{B:1,s:1.5,E:2}^3{} {C:attention}"
+					.. value.hand
+					.. "{} {C:chips}Chips{}, {C:chips}Level Chips{}, {C:mult}Mult{} and {C:mult}Level Mult{}.",
 				"Then {B:1,s:1.5,E:2}^^3{} {C:attention}" .. value.hand .. "{} level.",
 			},
 		},
 
-		pos = { x = pos, y = 0 },
-		soul_pos = { x = pos, y = 1 },
+		pos = { x = 0, y = pos },
+		soul_pos = { x = 1, y = pos },
 
 		can_use = function(_, _)
 			return Transfinite.utils.can_use()
 		end,
 
-		use = function(self, card, area, _)
+		use = function(_, card, _, _)
 			local hand = value.hand
 			local hand_data = Transfinite.utils.get_hand(hand)
 

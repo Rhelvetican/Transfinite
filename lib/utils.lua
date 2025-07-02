@@ -11,11 +11,11 @@ utils.can_use = function()
 end
 
 utils.get_hand = function(hand)
-	return G.Game.hands[hand]
+	return G.GAME.hands[hand]
 end
 
 utils.set_hand = function(hand, value)
-	G.Game.hands[hand] = lenient_bignum(value)
+	G.GAME.hands[hand] = lenient_bignum(value)
 end
 
 Transfinite.utils = utils

@@ -1,6 +1,6 @@
 SMODS.ConsumableType({
-	key = "tfnt_ordinalcard",
-	collection_rows = { 7, 7, 7 },
+	key = "tfnt_o_planet",
+	collection_rows = { 6, 6 },
 
 	primary_colour = HEX("FFFFFF"),
 	secondary_colour = Transfinite.colors.gradients.ordinal,
