@@ -16,3 +16,12 @@ if not Transfinite then
 		return loaded
 	end
 end
+
+local items = {
+	"items/colors.lua",
+	"items/consumables.lua",
+}
+
+for i = 1, #items do
+	Transfinite.load(items[i])
+end
