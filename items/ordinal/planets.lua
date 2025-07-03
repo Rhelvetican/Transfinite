@@ -154,7 +154,6 @@ SMODS.Consumable({
     use = function(_, card, _, _)
         for hand, _ in pairs(G.GAME.hands) do
             local hand_data = Transfinite.utils.get_hand(hand)
-
             Transfinite.utils.juice_up_card(card)
             hand_data.level = Transfinite.math.arrows(hand_data.level, Transfinite.config.planets.blackhole.levels, 3)
             Transfinite.utils.juice_up_card(card)
