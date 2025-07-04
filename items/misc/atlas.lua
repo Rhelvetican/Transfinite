@@ -9,6 +9,15 @@ Transfinite.atlases.jokers = SMODS.Atlas({
     path = "Joker.png",
 })
 
+Transfinite.atlases.exotics = SMODS.Atlas({
+    key = "exojkr",
+
+    px = 71,
+    py = 95,
+
+    path = "ExoticJoker.png",
+})
+
 Transfinite.atlases.planets = SMODS.Atlas({
     key = "o_planet",
 
