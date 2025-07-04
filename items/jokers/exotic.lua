@@ -1,8 +1,11 @@
 SMODS.Joker({
     key = "omega",
     pos = { x = 0, y = 0 },
+    rarity = "cry_exotic",
     soul_pos = { x = 1, y = 0, extra = { x = 2, y = 0 } },
     atlas = "exojkr",
+
+    cost = 100,
 
     loc_txt = {
         name = "Omega",
