@@ -147,7 +147,7 @@ SMODS.Consumable({
     },
 
     pos = { x = 0, y = 0 },
-    soul_pos = { x = 0, y = 1 },
+    tsoul_pos = { x = 0, y = 1 },
 
     can_use = function(_, _) return Transfinite.utils.can_use() end,
 
@@ -163,11 +163,6 @@ SMODS.Consumable({
             hand_data.chips = Transfinite.math.tetrate(hand_data.chips, Transfinite.config.planets.blackhole.stats):add(hand_data.level:mul(hand_data.l_chips))
             hand_data.mult = Transfinite.math.tetrate(hand_data.mult, Transfinite.config.planets.blackhole.stats):add(hand_data.level:mul(hand_data.l_mult))
             Transfinite.utils.juice_up_card(card)
-            Transfinite.utils.set_hand(hand, hand_data)
         end
-    end,
-
-    draw = function(_, card, layer)
-        if (layer == "card" or layer == "both") and card.sprite_facing == "front" then card.children.center:draw_shader("booster", nil, card.ARGS.send_to_shader) end
     end,
 })
