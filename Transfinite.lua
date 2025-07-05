@@ -20,7 +20,7 @@ local items = {
     "lib/utils.lua",
 
     "items/misc/atlas.lua",
-
+    "items/misc/blinds.lua",
     "items/misc/colors.lua",
     "items/misc/consumables.lua",
 
