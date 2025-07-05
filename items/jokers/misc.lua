@@ -36,12 +36,14 @@ SMODS.Joker({
 })
 
 SMODS.Joker({
-    key = "cryptid_joker",
+    key = "fibbonacci_joker",
     loc_txt = {
-        name = "Cryptid the Joker",
+        name = "Fibonacci Joker",
         text = {
-            "Gains {X:mult,C:white}X#1#{} Mult at the end of turn.",
-            "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive})",
+            "At the {C:attention}end of round{},",
+            "Gains it's previous {C:mult,E:1}+Mult{} value.",
+            "{C:inactive}(Currently {C:mult}+#1#{} {C:inactive}Mult){}",
+            "{C:inactive}(Previously {C:mult}+#2#{} {C:inactive}Mult){}",
         },
     },
     atlas = "jkr",
@@ -49,33 +51,26 @@ SMODS.Joker({
     pos = { x = 1, y = 0 },
     config = {
         extra = {
-            xmult_gain = 0.05,
-            xmult = 1.0,
+            cur = 1,
+            prev = 0,
         },
     },
 
-    loc_vars = function(_, _, card) return { vars = { card.ability.extra.xmult_gain, card.ability.extra.xmult } } end,
-    cost = 3,
-    rarity = 2,
+    loc_vars = function(_, _, card) return { vars = { card.ability.extra.cur, card.ability.extra.prev } } end,
+    cost = 16,
+    rarity = "cry_epic",
 
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
 
     calculate = function(_, card, context)
-        if context.end_of_round and context.main_eval then card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain end
-        if context.joker_main then return { Xmult_mod = card.ability.extra.n, message = "X" .. tostring(card.ability.extra.xmult) } end
-    end,
-})
+        if context.end_of_round and context.main_eval then
+            local cur = card.ability.extra.cur
+            card.ability.extra.cur = card.ability.extra.cur + card.ability.extra.prev
+            card.ability.extra.prev = cur
+        end
 
-SMODS.Joker({
-    key = "broken_crown",
-    loc_txt = {
-        name = "Cryptid the Joker",
-        text = {
-            "Gains {X:mult,C:white}X#1#{} Mult at the end of turn.",
-            "{C:inactive}(Currently {X:mult,C:white}X#2#{} {C:inactive})",
-        },
-    },
-    atlas = "jkr",
+        if context.joker_main then return { mult = card.ability.extra.cur, message = "+" .. tostring(card.ability.extra.cur) } end
+    end,
 })

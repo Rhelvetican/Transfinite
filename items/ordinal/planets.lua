@@ -93,7 +93,7 @@ for pos, value in pairs(planets) do
             name = "Ordinal " .. value.name,
 
             text = {
-                "{X:tfnt_gradient_ordinal1,E:2}^#1#{} {C:attention}" .. value.hand .. "{} {C:chips}Chips{}, {C:chips}Level Chips{}, {C:mult}Mult{} and {C:mult}Level Mult{}.",
+                "{X:tfnt_gradient_ordinal1,E:2}^#1#{} {C:attention}" .. value.hand .. "{} {C:chips}Level Chips{} and {C:mult}Level Mult{}.",
                 "Then {X:tfnt_gradient_ordinal1,E:2}^^#2#{} {C:attention}" .. value.hand .. "{} level.",
             },
         },
@@ -113,8 +113,8 @@ for pos, value in pairs(planets) do
             hand_data.l_chips = Transfinite.math.pow(hand_data.l_chips, Transfinite.config.planets.planet.stats)
             hand_data.l_mult = Transfinite.math.pow(hand_data.l_mult, Transfinite.config.planets.planet.stats)
             Transfinite.utils.juice_up_card(card)
-            hand_data.chips = Transfinite.math.pow(hand_data.chips, Transfinite.config.planets.planet.stats):add(hand_data.level:mul(hand_data.l_chips))
-            hand_data.mult = Transfinite.math.pow(hand_data.mult, Transfinite.config.planets.planet.stats):add(hand_data.level:mul(hand_data.l_mult))
+            hand_data.chips = hand_data.chips:add(hand_data.level:mul(hand_data.l_chips))
+            hand_data.mult = hand_data.mult:add(hand_data.level:mul(hand_data.l_mult))
             Transfinite.utils.juice_up_card(card)
             Transfinite.utils.set_hand(hand, hand_data)
         end,
@@ -141,7 +141,7 @@ SMODS.Consumable({
         name = "{s:2}TON 618{}",
 
         text = {
-            "{X:tfnt_gradient_ordinal,E:2}^^#1#{} {C:attention,E:2}all hands'{} {C:chips}Chips{}, {C:chips}Level Chips{}, {C:mult}Mult{} and {C:mult}Level Mult{}.",
+            "{X:tfnt_gradient_ordinal,E:2}^^#1#{} {C:attention,E:2}all hands'{} {C:chips} {C:chips}Level Chips{} and {C:mult}Level Mult{}.",
             "Then {X:tfnt_gradient_ordinal,E:2}^^^#2#{} {C:attention,E:2}all hands'{} levels.",
         },
     },
@@ -160,8 +160,8 @@ SMODS.Consumable({
             hand_data.l_chips = Transfinite.math.tetrate(hand_data.l_chips, Transfinite.config.planets.blackhole.stats)
             hand_data.l_mult = Transfinite.math.tetrate(hand_data.l_mult, Transfinite.config.planets.blackhole.stats)
             Transfinite.utils.juice_up_card(card)
-            hand_data.chips = Transfinite.math.tetrate(hand_data.chips, Transfinite.config.planets.blackhole.stats):add(hand_data.level:mul(hand_data.l_chips))
-            hand_data.mult = Transfinite.math.tetrate(hand_data.mult, Transfinite.config.planets.blackhole.stats):add(hand_data.level:mul(hand_data.l_mult))
+            hand_data.chips = hand_data.chips:add(hand_data.level:mul(hand_data.l_chips))
+            hand_data.mult = hand_data.mult:add(hand_data.level:mul(hand_data.l_mult))
             Transfinite.utils.juice_up_card(card)
         end
     end,
